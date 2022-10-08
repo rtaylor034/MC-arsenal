@@ -1,0 +1,14 @@
+{
+  "__comment": "IMPORTANT - Make sure to reset (setcount.in -> var) directly after calling this modifier",
+  "function": "minecraft:set_count",
+  "count": {
+    "type": "minecraft:score",
+    "target": {
+      "type": "minecraft:fixed",
+      "name": "setcount.in"
+    },
+    "score": "var"
+
+  },
+  "add": false
+}

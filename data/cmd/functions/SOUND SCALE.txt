@@ -1,0 +1,31 @@
+
+ALL SOUNDS IN A# LYDIAN
+
+OCTAVE 1
+A# 0.63
+C 0.707
+D 0.794
+E 0.891
+F 0.944
+G 1.059
+A 1.189
+
+OCTAVE 2
+A# 1.26
+C 1.414
+D 1.587
+E 1.782
+F 1.888
+G n/a
+A n/a
+
+SOUND CORRELATION
+A# Question/Odd/Fail
+C Information
+D Event/Action
+E Confirm/Yes
+F Block/Null
+G Low energy/Subtle
+A Navigation
+
+#Combination notes may not follow these conventions, this only applies to single note sounds.

@@ -1,0 +1,22 @@
+{
+  "criteria": {
+    "swap": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "count": {
+                "min": 1,
+                "max": 64
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "cmd:player/events/advancement/abilityslot/swap/call"
+  }
+}

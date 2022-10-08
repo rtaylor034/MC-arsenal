@@ -1,0 +1,113 @@
+
+
+==== CONTROL FUNCTIONS ====
+- Anything under the controls/... subfolder is a control function
+- These set nbt/score values that are easily manipulatable by a dev, without breaking anything or needing to search through functions.
+- any scores/nbt data set in these functions should NOT *UNDER ANY CIRCUMSTANCES*, be changed anywhere else.
+
+==== TEAMS ====
+- The 2 teams are named "team1" and "team2" respectively. A 3rd "spectator" team is for spectators
+- The actual teams are mainly just for team rules and display, most command related team interactions are run off of the "team" score.
+- the "team" scoreboard specifies which team a player is on. this score is to be set to 0 when in lobby, and to 3 when spectating.
+- ALL team-based targeting in commands should be using the "team" score and NEVER the actual /team team.
+
+==== GAME MODES ====
+- When a game is active, the mode is stored in [mode -> cmd:game]
+KEY:
+1 - 5v5 Classic
+
+
+==== BOX MENUS ====
+- All box menu items must have the item tag {boxmenu:1}
+
+==== PLAYER STATES ====
+- Each player has a "playerstate" score that indicates what state of the game they are in.
+KEY:
+0 - In lobby/Out of game
+1 - In-Game ALIVE
+2 - In-Game DEAD (spectating)
+3 - Post/Pre round (upgrading, banning, etc.)
+4 - Spectator
+
+==== GAME STATE ====
+- All data relating to the state of the running game is stored under [cmd:game].
+- This is reset once a new game starts.
+
+==== PLAYER STATISTICS ====
+- Player statistics store what a player did for each round, (ex: damage dealt, player kills).
+- Statistics are stored in a player's tracker under {data.game.statistics.rounds}
+- Every round, a new round element is added to "rounds", and every statistic for that round is stored in that element.
+~EX: data.game.statistics.rounds = [{round:3, damageDealt:4550, kills:4...}, {round:2, damageDealt:2304, kills:4...}...]
+
+
+==== PLAYER ID ====
+- Each player is given a unique "playerid" score when they first join the game.
+- This score allows commands to differentiate between players easily.
+- This score should never be changed after it is set.
+
+==== TRACKERS ====
+- Each player has a "tracker" assigned to them when they first join the game.
+- This tracker is a marker entity that is teleported to them every tick, and shares their playerid score.
+- The main purpose of this tracker entity is to store data about their corresponding player, such as effects
+and abilities.
+- Basically just a way to have nbt storage correspond with a player without needing to cycle through an actual
+storage array to find a matching player.
+
+==== STATS ====
+- player stats have 3 scoreboard objectives: "stat_<stat>_base", "stat_<stat>_mod", and "stat_<stat>"
+- The "base" stat scores are the stats directly given by armor, and are the default stats for that player.
+- The "mod" stat scores are any stats given/taken by any other factors, such as effects.
+- The plain stat scores are the sum of the 2 (calculated when stats are updated), and are to be used in the calculation
+of anything that relies on the stat.
+
+
+==== EFFECTS ====
+- Effects are stored as an object in the "data.effects.<stat/status>[]" path of each players tracker.
+- Stat effects are effects that temporarily change the "stat_<stat>_mod" score of a player
+- Status effects are effects that are custom, and run a function every tick on the player that has them.
+- Stat effect format: {id:<stat id>, time:<effect duration>, amount:<stat change amount>}
+- Status effect format: {name:<effect name>, time:<effect duration>, params:{<any extra nbt an effect requires>}, type:<effect type>}
+- Status effect type specifies if it is beneficial, detrimental, or neutral for the player.
+- Both objects have an additional "inflict:1b" tag, indicating if they have been inflicted that tick.
+This tag is immediately removed after being read.
+
+==== ABILITIES ====
+- Abilities are stored as an object in the "data.abilities[]" path of each players tracker.
+- this array controls which ability is used when a player drops/swaps/sneaks/clicks.
+- Ability object format: {slot:<slot id>, time:<cooldown left>, id:<ability id>, name:<ability name>, devName:<developer name>, type:<ability type>, cooldown:[<cooldowns>], energyCost:[<energy costs>]}
+- if an ability is not equipped to a slot, then the format is just: {slot:<slot id>, time:0}
+
+==== CURRENCY ====
+- players can earn 2 types of currency, "t" and "c".
+- t is used to permanently upgrade armor and weapons. t is earned a set amount each round, with an additional small amount given to the team that wins.
+- c is used to buy consumables for 1 round. c is earned by getting kills/doing get, and is also given a set amount each round.
+- t's color identity is aqua.
+- c's color identity is gold.
+
+==== IN GAME SETTINGS ====
+- Players should be HIGHLY encouraged to turn their "player" sounds OFF, gameplay should assume that all
+players have "player" sounds off.
+
+
+==== HOTBAR SLOTS ====
+- Items being in the correct hotbar slot is extremely important, and game functionality will be broken if items are not in their correct place, as some functions rely on SelectedItemSlot.
+- Slot 0: WEAPON SLOT
+- Slot 1-4: CONSUMABLE SLOTS
+- Slot 5-8: Drop/Swap/Sneak/Click ABILITY COOLDOWN DISPLAYS
+- Offhand: Should ALWAYS be empty, as this is used to detect swap ability usage
+
+
+==== TEXTURES/MODEL DATA ====
+- Categories of items are to be assigned ranges of CustomModelData values that can be used, along with their respective item.
+- ABILITIES
+~ X = [abilityIcon.offset -> cmd:controls/display ; int] (default 1000)
+- Ability Icons: "lime_dye". CustomModelData = X + <ability id>
+- Cooldown Icons: (may or may not be unique): "gray_dye". CustomModelData = X + <ability id>
+- Item/Boxmenu displays: "slime_ball" (CustomModelData specified in controls/display) ranges [1..500]
+- CONSUMABLES:
+~ X = [consumableIcon.offset -> cmd:controls/display ; int] (default 2000)
+- Consumable Icons: "carrot_on_a_stick". CustomModelData = X + <consumable id>
+- Empty Slot: "black_dye". CustomModelData = X.
+
+==== SOUNDS ====
+- This is just an idea, but it might be cool if every sound was pitched to be in-key to a musical note. (using the note block pitch wiki table).

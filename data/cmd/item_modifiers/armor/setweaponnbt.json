@@ -1,0 +1,30 @@
+[
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{Unbreakable:1,HideFlags:71}"
+  },
+  {
+    "function": "minecraft:copy_nbt",
+    "source": {
+      "type": "minecraft:storage",
+      "source": "cmd:storage/armor"
+    },
+    "ops": [
+      {
+        "source": "array[0].weapon.itemtag.Enchantments",
+        "target": "Enchantments",
+        "op": "replace"
+      },
+      {
+        "source": "array[0].weapon.itemtag.customtags",
+        "target": "customtags",
+        "op": "replace"
+      },
+      {
+        "source": "array[0].weapon.itemtag.display",
+        "target": "display",
+        "op": "replace"
+      }
+    ]
+  }
+]

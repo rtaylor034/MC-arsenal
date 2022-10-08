@@ -1,0 +1,14 @@
+
+***** This is for describing what each ability does IN DEPTH, by id *****
+
+VARIABLE KEY
+<p> = Power
+<d> = Protection
+<v> = Vitality
+<m> = Movement Speed
+<f> = Focus
+<s> = Strength
+
+<w> = Weapon Damage
+<a> = Attack Speed
+<e> = Max Energy

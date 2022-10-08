@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "gethit": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:player",
+            "equipment": {
+              "mainhand": {
+                "item": "minecraft:carrot_on_a_stick",
+                "nbt": "{customtags:{weapon:1}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "cmd:player/events/advancement/melee/take/call"
+  }
+}

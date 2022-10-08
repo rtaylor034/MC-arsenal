@@ -1,0 +1,16 @@
+{
+  "__comment": "IMPORTANT - Make sure to remove [mergenbt -> cmd:var] directly after calling this modifier",
+  "function": "minecraft:copy_nbt",
+  "source": {
+    "type": "minecraft:storage",
+    "source": "cmd:var"
+  },
+  "ops": [
+    {
+      "source": "mergenbt",
+      "target": "{}",
+      "op": "merge"
+    }
+  ]
+
+}
