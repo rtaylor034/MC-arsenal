@@ -17,6 +17,10 @@ function cmd:player/armor/applystats/run
 #equip
 function cmd:player/armor/equip/all
 
+#barupdate
+function cmd:player/bars/update
+function cmd:player/bars/health/update/run
+
 #tags
 tag @s add barupdate
 tag @s add attupdate
