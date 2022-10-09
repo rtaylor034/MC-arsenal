@@ -36,8 +36,12 @@ scoreboard players set @a[tag=ingame] currency_c 0
 scoreboard players set @a[tag=ingame] currency_t 0
 
 #Creates trackers
-#/This is for test-refresh purposes and does not need to exist in final build
+#/This should exist for final build. have a seperate method of storage if long-term stats are stored.
 execute as @a[tag=ingame] at @s run function cmd:player/tracker/create
+
+#TRACKER DATA ROUNDS RESET
+#/not sure if this is done somewhere else, but this is a safety.
+#execute as @e[type=marker,tag=tracker] at @s run data modify entity @s data.game.statistics.rounds set value []
 
 #ARMOR ARRAY
 data modify storage cmd:storage/armor array set value []
