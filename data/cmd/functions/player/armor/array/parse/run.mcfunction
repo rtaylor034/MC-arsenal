@@ -22,6 +22,7 @@ data modify storage cmd:storage/armor array set from storage cmd:var array
 #RESETS
 scoreboard players reset armor.parse.player var
 scoreboard players reset armor.parse.type var
+scoreboard players reset armor.parse.weapon var
 scoreboard players reset parse.i var
 scoreboard players reset parse.j var
 scoreboard players reset parse.f var
