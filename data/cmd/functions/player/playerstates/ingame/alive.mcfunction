@@ -17,7 +17,6 @@ function cmd:player/tracker/unfind/run
 
 #SYSTEMS
 function cmd:player/systems/hunger/base
-function cmd:player/systems/meleetimer/base
 function cmd:player/systems/energy/regen/base
 function cmd:player/systems/inventory/base
 function cmd:player/systems/bars/base
