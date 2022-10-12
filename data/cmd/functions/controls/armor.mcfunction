@@ -71,7 +71,8 @@ data modify storage cmd:controls/armor statIdentities.weapon.ranged set value [{
 #"item" is the corresponding minecraft item to the armor peice
 data modify storage cmd:controls/armor names.armorTypes set value [{type:1, name:"Boots",item:"minecraft:leather_boots"}, {type:2, name:"Leggings",item:"minecraft:leather_leggings"}, {type:3, name:"Chestplate",item:"minecraft:leather_chestplate"},{type:4, name:"Helmet",item:"minecraft:leather_helmet"}]
 data modify storage cmd:controls/armor weapon.defaultName set value "Weapon"
-#data modify storage cmd:controls/armor names.weaponTypes set value [{type:0, name:"Default Weapon"}, {type:1, name:"Sword"}, {type:2, name:"Axe"}, {type:3, name:"Knife"},{type:4, name:"Hammer"},{type:5,name:"Staff"}]
+data modify storage cmd:controls/armor names.weapon.melee set value [{type:1, name:"Blade"}, {type:2, name:"Hammer"}, {type:3, name:"Staff"},{type:4, name:"Direct"}]
+data modify storage cmd:controls/armor names.weapon.ranged set value [{type:1, name:"Light"}, {type:2, name:"Auto"}, {type:3, name:"Semi"},{type:4, name:"Launcher"}]
 
 
 #ARMOR PASSIVES
