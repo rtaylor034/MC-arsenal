@@ -54,14 +54,15 @@ data modify storage cmd:controls/armor defaultColor set value {r:20, g:20, b:20}
 #"color" is is the RGB color value that is added to the base armor color per stat (can range from -255 to 255, but recommended to not go further than 60 for any value to prevent color value overflow)
 #"name" is the name of the stat when displayed on armor or anything else.
 data remove storage cmd:controls/armor statIdentities
-data modify storage cmd:controls/armor statIdentities.armor set value [{id:1, name:"Power", color:{r:45, g:0, b:45}}, {id:2, name:"Protection", color:{r:7, g:12, b:45}}, {id:4, name:"Movement Speed", color:{r:45, g:45, b:15}}, {id:5, name:"Focus", color:{r:45, g:45, b:45}}, {id:6, name:"Strength", color:{r:45, g:0, b:0}}]
+data modify storage cmd:controls/armor statIdentities.armor set value [{id:1, name:"Power", color:{r:45, g:0, b:45}}, {id:2, name:"Protection", color:{r:7, g:12, b:45}}, {id:4, name:"Movement Speed", color:{r:45, g:45, b:15}}, {id:5, name:"Focus", color:{r:45, g:45, b:45}}, {id:6, name:"Max Energy", color:{r:45, g:0, b:0}}]
 #Vitality is hidden and is not a valid armor-stat
 #{id:3, name:"Vitality", color:{r:0, g:45, b:0}}
 
 #stat identities for weapons
 #"color" for weapon stats only specifies the color that the item icon displays, and does not effect the actual weapon itself.
 #"count" should stay 0, it is there for a step of parsing. *DO NOT CHANGE*
-data modify storage cmd:controls/armor statIdentities.weapon set value [{id:1, name:"Damage", count:0, color:{r:50, g:0, b:0}}, {id:2, name:"Attack Speed", count:0, color:{r:5, g:10, b:50}}, {id:3, name:"Max Energy", count:0, color:{r:50, g:55, b:0}}]
+data modify storage cmd:controls/armor statIdentities.weapon.melee set value [{id:1, name:"Damage", count:0, color:{r:50, g:0, b:0}}, {id:2, name:"Attack Speed", count:0, color:{r:5, g:10, b:50}}, {id:3, name:"Range", count:0, color:{r:50, g:55, b:0}}]
+data modify storage cmd:controls/armor statIdentities.weapon.ranged set value [{id:1, name:"Damage", count:0, color:{r:50, g:0, b:0}}, {id:2, name:"Fire Rate", count:0, color:{r:5, g:10, b:50}}, {id:3, name:"Ammo", count:0, color:{r:50, g:55, b:0}}]
 
 
 #NAMES
