@@ -12,3 +12,4 @@ function cmd:controls/consumables
 function cmd:controls/teams
 function cmd:controls/maps
 function cmd:controls/game
+function cmd:controls/weapons
