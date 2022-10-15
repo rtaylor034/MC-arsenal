@@ -10,10 +10,17 @@
 #5 = Focus
 #6 = Strength
 
+#weapon stat id key (melee / ranged):
+#1 = Damage / Damage
+#2 = Attack delay(speed) / Fire rate
+#3 = Attack Windup / Ammo
+#4 = Range / Reload speed
+#/these stats are handled within the actual ability being casted
+
 #BASE WEAPON IDENTITIES
 #"type" is the weapon type identifier.
 #"name" is the name of the weapon.
-#"innatestat" is the stat that is given when that type of weapon is chosen.
+#"innateastat" is the armor stat that is given when that type of weapon is chosen.
 #"ranged" indicates whether or not the weapon is ranged or not (0 for melee, 1 for ranged).
 #"abilityid" is the ability id that will be equipped to ability slot 4 when the type of weapon is chosen.
 data modify storage cmd:controls/weapons baseIdentities set value []
@@ -21,10 +28,10 @@ data modify storage cmd:controls/weapons baseIdentities append value {type:1, na
 data modify storage cmd:controls/weapons baseIdentities append value {type:2, name:"Launcher", innatestat:1, abilityid:1501, ranged:1}
 
 #INNATE STAT VALUE
-#the value of the innate stat given when weapon is chosen.
+#the value of the innate armor stat given when weapon is chosen.
 data modify storage cmd:controls/weapons innateStatValue set value 15
 
-#PASSIVES
-data modify storage cmd:controls.weapons passives set value []
-data modify storage cmd:controls.weapons passives append value {id:1, type:1, name:"Direct Passive 1"}
-data modify storage cmd:controls.weapons passives append value {id:2, type:2, name:"Launcher Passive 1"}
+#AUGMENTS
+data modify storage cmd:controls/weapons augments set value []
+data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1"}
+data modify storage cmd:controls/weapons augments append value {id:2, type:2, name:"Launcher Passive 1"}

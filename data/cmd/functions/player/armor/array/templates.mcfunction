@@ -22,7 +22,7 @@
 execute unless data storage cmd:storage/armor array run data modify storage cmd:storage/armor array set value []
 data modify storage cmd:templates/armor registerplayer set value {playerid:0, armor:[], weapon:{}}
 data modify storage cmd:templates/armor armorpeice set value {type:0,level:0, passiveid:0, stats:[], itemtag:{}}
-data modify storage cmd:templates/armor weapon set value {passiveid:0, level:0, stats:[], itemtag:{}}
+data modify storage cmd:templates/armor weapon set value {type:0, level:0, stats:[], augments:[], itemtag:{}}
 
 #ARMOR PARSE
 #default itemtag
