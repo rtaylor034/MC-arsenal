@@ -31,6 +31,13 @@ data modify storage cmd:controls/weapons baseIdentities append value {type:2, na
 #the value of the innate armor stat given when weapon is chosen.
 data modify storage cmd:controls/weapons innateStatValue set value 15
 
+#UPGRADE ORDER
+#this defines what gets added to the weapon each upgrade, in order.
+#a 0 is a path upgrade, and a 1 is an augment.
+#the number of elements in this array is the max level a weapon can be upgraded.
+#Ex: [0,1,0,0,1], at upgrade number 2 and 5, the weapon will recieve augments, at other upgrade levels it will get a path upgrade.
+data modify storage cmd:controls/weapons upgradeOrder set value [0,0,1,0,1]
+
 #AUGMENTS
 data modify storage cmd:controls/weapons augments set value []
 data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1"}
