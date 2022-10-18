@@ -22,7 +22,7 @@
 execute unless data storage cmd:storage/armor array run data modify storage cmd:storage/armor array set value []
 data modify storage cmd:templates/armor registerplayer set value {playerid:0, armor:[], weapon:{}}
 data modify storage cmd:templates/armor armorpeice set value {type:0,level:0, passiveid:0, stats:[], itemtag:{}}
-data modify storage cmd:templates/armor weapon set value {type:0, level:0, stats:[], augments:[], itemtag:{}}
+data modify storage cmd:templates/armor weapon set value {type:0, level:0, path:[], augments:[], itemtag:{}}
 
 #ARMOR PARSE
 #default itemtag
@@ -41,12 +41,7 @@ data modify storage cmd:templates/armor/parse weapon.passives set from storage c
 
 #WEAPON PARSE
 #default itemtag
-data modify storage cmd:templates/armor/parse weapon.itemtag set value {display:{Name:"",Lore:[]},customtags:{weapon:1,passiveid:0}}
-
-#actives [DEPRICATED]
-#data modify storage cmd:templates/armor/parse weapon.actives set value []
-#data modify storage cmd:templates/armor/parse weapon.actives append value {id:1, name:"test active 1", desc:"test description 1"}
-#data modify storage cmd:templates/armor/parse weapon.actives append value {id:2, name:"Berserker", desc:"test"}
+data modify storage cmd:templates/armor/parse weapon.itemtag set value {display:{Name:"",Lore:[]},customtags:{weapon:1,type:0}}
 
 #stats
 data modify storage cmd:templates/armor/parse weapon.stats set from storage cmd:controls/armor statIdentities.weapon

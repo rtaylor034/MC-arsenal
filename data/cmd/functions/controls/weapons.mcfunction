@@ -10,7 +10,7 @@
 #5 = Focus
 #6 = Strength
 
-#weapon stat id key (melee / ranged):
+#path id key (melee / ranged):
 #1 = Damage / Damage
 #2 = Attack delay(speed) / Fire rate
 #3 = Attack Windup / Ammo
