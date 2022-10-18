@@ -60,7 +60,6 @@ storage array to find a matching player.
 - The plain stat scores are the sum of the 2 (calculated when stats are updated), and are to be used in the calculation
 of anything that relies on the stat.
 
-
 ==== EFFECTS ====
 - Effects are stored as an object in the "data.effects.<stat/status>[]" path of each players tracker.
 - Stat effects are effects that temporarily change the "stat_<stat>_mod" score of a player
