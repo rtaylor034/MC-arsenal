@@ -15,7 +15,7 @@
 #2 = Attack delay(speed) / Fire rate
 #3 = Attack Windup / Ammo
 #4 = Range / Reload speed
-#/these stats are handled within the actual ability being casted
+#/Damage, Attack Windup, and range are handled within the actual ability usage function.
 
 #BASE WEAPON IDENTITIES
 #"type" is the weapon type identifier.
@@ -42,3 +42,18 @@ data modify storage cmd:controls/weapons upgradeOrder set value [0,0,1,0,1]
 data modify storage cmd:controls/weapons augments set value []
 data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1"}
 data modify storage cmd:controls/weapons augments append value {id:2, type:2, name:"Launcher Passive 1"}
+
+#WEAPON ABILITY ARRAY
+#These are added to the main ability array, and follow the same rules, with the exception of "weapon"
+#These must be equipped with the "equip.weapon" arguement in cmd:player/abilities/equip to generate the uses[] array.
+#"weapon.path" is left blank, this is for ability event call information.
+#"weapon.augments" is left blank, this is for ability event call information.
+#"weapon.use" is information given to the equip function to generate an actual uses[] array.
+#"weapon.use.ranged" indicates whether or not the weapon is ranged or not.
+#"weapon.use.cooldown" (NON-RANGED ONLY) is the attack delay (cooldown) of the ability.
+#"weapon.use.reload" (RANGED ONLY) is how long in ticks the weapon takes to reload (final uses[] cooldown).
+#"weapon.use.fireDelay" (RANGED ONLY) is the minimum delay between attack/fire in ticks (waitTime in uses[] array).
+#"weapon.use.ammo" (RANGED ONLY) is the amount of duplicates that will be generates in the abilities uses[] array.
+#NOTE - non-ranged weapons will only generate 1 element in the uses[] array, while ranged will generate however many elements to match their ammo amount.
+data modify storage cmd:controls/abilities array append value {id:1001, type:4, devName:"weapon_direct", name:"Direct Attack", weapon:{path:[], augments:[], use:{ranged:0, cooldown:35}}}
+data modify storage cmd:controls/abilities array append value {id:1501, type:4, devName:"weapon_launcher", name:"Launcher", weapon:{path:[], augments:[], use:{ranged:1, reload:50, ammo:5, fireDelay:20}}}

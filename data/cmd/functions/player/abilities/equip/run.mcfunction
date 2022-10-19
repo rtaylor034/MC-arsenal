@@ -1,11 +1,12 @@
 
 #IN - @s, A (equip.id -> var), B (equip.slot -> var) | ability id, slot id
-#OUT - A (equip.out -> var), B [equip.name -> cmd:var ; String], C [equip.replaced -> cmd:var ; Player Ability Obj] | success?, ability name, replaced abili
+#OUT - A (equip.out -> var), B [equip.replaced -> cmd:var ; Player Ability Obj] | success?, replaced ability
 
 #USE - equips the ability specified in (IN A) to this player's tracker's ability array to the slot specified in (IN B).
 
 #NOTE - This searches for the ability id in [array -> cmd:controls/abilities], and copies its data
 
+#/TODO: CREATE WEAPON-SPECIFIC ABILITY ARGUEMENT SUPPORT
 
 #FIND TRACKER
 function cmd:player/tracker/find/run
