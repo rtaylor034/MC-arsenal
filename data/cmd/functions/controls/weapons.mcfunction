@@ -38,7 +38,16 @@ data modify storage cmd:controls/weapons innateStatValue set value 15
 #Ex: [0,1,0,0,1], at upgrade number 2 and 5, the weapon will recieve augments, at other upgrade levels it will get a path upgrade.
 data modify storage cmd:controls/weapons upgradeOrder set value [0,0,1,0,1]
 
-#AUGMENTS
+#PATH STAT RATIO
+#This defines how much each path upgrade actually affects the performance of the weapon.
+#"id" is the path upgrade id (identifier).
+#"percent[0]" is the percent multiplier of the respective melee path stat.
+#"percent[1]" is the percent multiplier of the respective ranged path stat.
+#Ex: {id:3, percent:[65, 115]} - When a melee weapon gets path upgraded with an id of 3 (Attack Windup), their attack windup will be 65% of its original value. For ranged (Ammo), their ammo will be 115% of its original value. This should stack multiplicatively NOT additively (65% * 65% = 42% | 115% * 115% = 132%)
+#/NOTE - Range is probably a special case that cant really be modified with numerical values because it is coded directly into the ability, so handle it within the ability given the path[] array instead.
+data modify storage cmd:controls/weapons pathRatios set value [{id:1, percent:[110, 110]}, {id:2, percent:[75, 80]}, {id:3, percent:[65, 115]}, {id:4, percent:[0, 80]}]
+
+#AUGMENTS ARRAY
 data modify storage cmd:controls/weapons augments set value []
 data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1"}
 data modify storage cmd:controls/weapons augments append value {id:2, type:2, name:"Launcher Passive 1"}
