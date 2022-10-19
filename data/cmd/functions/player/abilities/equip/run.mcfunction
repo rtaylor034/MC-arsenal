@@ -5,8 +5,7 @@
 #USE - equips the ability specified in (IN A) to this player's tracker's ability array to the slot specified in (IN B).
 
 #NOTE - This searches for the ability id in [array -> cmd:controls/abilities], and copies its data
-
-#/TODO: CREATE WEAPON-SPECIFIC ABILITY ARGUEMENT SUPPORT
+#NOTE - if the ability is a weapon ability (has {weapon} arguement), this will generate the appropriate ability object. This MUST be called anytime the player's weapon augments or path changes.
 
 #FIND TRACKER
 function cmd:player/tracker/find/run
