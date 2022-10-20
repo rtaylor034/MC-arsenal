@@ -14,5 +14,8 @@ function cmd:process/array/cycleto/run
 #id set
 execute if score cycleto.out var matches 1 store result score get.id var run data get storage cmd:process/array/cycleto out[0].id
 
+#ref set
+data modify storage cmd:var get.a set from storage cmd:process/array/cycleto out[0]
+
 #success
 execute unless data storage cmd:process/array/cycleto out[0].id run scoreboard players set get.success var 0

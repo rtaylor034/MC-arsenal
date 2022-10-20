@@ -1,11 +1,11 @@
 
-#IN - A (ticks2sec.ticks -> var) | ticks to display, decimal precision power
+#IN - A (ticks2sec.ticks -> var) | ticks to display
 #OUT - A [out -> cmd:process/text/ticks2sec ; JsonString] | Display in seconds
 #CONTEXT - N/A
 
 #DESC - Converts the amount of ticks specified in [A] to a decimal display in seconds to [OUT A] with 1 decimal precision
 
-#EX: [A] = 50, | [OUT A] = "2.5"
+#EX: [A] = 50, | [OUT A] = {"text":"2.5"}
 
 
 #WHOLE NUMBER
