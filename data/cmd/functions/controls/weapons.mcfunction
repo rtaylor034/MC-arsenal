@@ -11,10 +11,10 @@
 #6 = Strength
 
 #weapon stat id key (melee / ranged):
-#1 = Damage / Damage
-#2 = Attack delay(speed) / Fire rate
-#3 = Attack Windup / Reload Speed
-#4 = Range / Ammo
+#1 = Damage         1 = Damage
+#2 = Attack delay   2 = Fire rate
+#3 = Attack Windup  3 = Reload Speed
+#4 = Range          4 = Ammo
 #/ALL things related to Damage, Attack Windup, and Range are handled within the actual ability usage function.
 
 #BASE WEAPON IDENTITIES
@@ -52,12 +52,13 @@ data modify storage cmd:controls/weapons pathRatios set value [{id:1, percent:[1
 #"type" is the type of weapon that the augment is compatible with.
 #"statMods" is how this augment affects the weapon stats of this weapon when applied to it, similar to pathRatios.
 data modify storage cmd:controls/weapons augments set value []
-data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1", statMods:[{id:1, percent:[100]},{id:2, percent:[80]},{id:3, percent:[50]},{id:4, percent:[110]}]}
-data modify storage cmd:controls/weapons augments append value {id:2, type:2, name:"Launcher Passive 1", statMods:[{id:1, percent:[200]},{id:2, percent:[50]},{id:3, percent:[250]},{id:4, percent:[40]}]}
+data modify storage cmd:controls/weapons augments append value {id:1, type:1, name:"Direct Passive 1", statMods:[{id:1, percent:100},{id:2, percent:80},{id:3, percent:50},{id:4, percent:110}]}
+data modify storage cmd:controls/weapons augments append value {id:2, type:2, name:"Launcher Passive 1", statMods:[{id:1, percent:200},{id:2, percent:50},{id:3, percent:250},{id:4, percent:40}]}
 
 #WEAPON ABILITY ARRAY
 #These are added to the main ability array, and follow the same rules, with the exception of "weapon"
-#These must be equipped with the "equip.weapon" arguement in cmd:player/abilities/equip to generate the uses[] array.
+#These are handled by cmd:player/abilities/equip to generate the uses[] array.
+#NOTE - make sure to offset the ability id by 1000 for melee and 1500 for ranged.
 #"weapon.path" is left blank, this is for dynamic stat calculation.
 #"weapon.augments" is left blank, this is for dynamic stat calculation.
 #"weapon.stats" holds the base stats of the weapon ability. these are dynamic and change when a player equips the weapon ability based on their path upgrades and augments.

@@ -3,6 +3,8 @@
 #OVERLOAD - A (armor.cycleto.player -> var) | playerid
 #OUT - (weapon.upgrade.out -> var) | weapon level | AFFECTS [cmd:storage/armor -> array[0].array[0]]
 
+#DESC - Updates this player's weapon in the armor array to the type specified in [IN A], and equips the weapon ability to slot 4.
+
 #calls cycleto for overload
 function cmd:player/armor/array/cycleto/run
 

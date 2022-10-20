@@ -1,4 +1,4 @@
-#CALL - equip/run
+#CALL - run
 
 #CYCLETO ABILITY
 data modify storage cmd:process/array/cycleto array set from storage cmd:controls/abilities array
@@ -9,7 +9,7 @@ data modify storage cmd:var equip.a set from storage cmd:process/array/cycleto o
 #EQUIP
 execute if score cycleto.out var matches 1 run data modify storage cmd:var equip.slots[0] merge from storage cmd:var equip.a
 
-#WEAPON
+#WEAPON GENERATION
 execute if data storage cmd:var equip.slots[0].weapon run function cmd:player/abilities/equip/genweapon
 
 

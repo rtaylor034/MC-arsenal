@@ -1,7 +1,7 @@
 
 #IN - A (armor.upgrade.in -> var), B (armor.upgrade.passive -> var)| upgrade stat id, passive id
 #OVERLOAD - A (armor.cycleto.player -> var), B (armor.cycleto.type) | playerid, armor type
-#OUT - (armor.upgrade.out -> var) | armor level | AFFECTS [cmd:storage/armor -> array[0].array[0]]
+#OUT - (armor.upgrade.out -> var) | armor level | AFFECTS [cmd:storage/armor -> array[0].armor[0]]
 
 #USE - adds (IN A) to the "stats[]" array on array[0].armor[0]. Additionally sets the "passiveid" to (IN B) if specified. Also increases the "level" value and returns it as OUT.
 
