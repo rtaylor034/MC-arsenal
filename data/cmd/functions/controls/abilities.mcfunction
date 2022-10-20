@@ -49,10 +49,10 @@ data modify storage cmd:controls/abilities slotIdentities set value [{slot:1,nam
 #"uses[].waitCancel" marks the Use Object that contains the cooldown the ability will be put on if cancelled by wait. (usually the last element) *only used if ability has multiple uses*
 
 #DEACTIVATED FOR DEBUG PURPOSES, REACTIVATE WHEN NEEDED
-#data modify storage cmd:controls/abilities array set value []
-#data modify storage cmd:controls/abilities array append value {id:-1, type:1, devName:"test_ability1", name:"Test Ability 1", uses:[{primary:1,cooldown:100, energyCost:50}]}
-#data modify storage cmd:controls/abilities array append value {id:-2, type:2, devName:"test_ability2", name:"Test Ability 2", uses:[{primary:1,cooldown:10, energyCost:50},{cooldown:100, energyCost:0, maxWait:60, waitCancel:1}]}
-#data modify storage cmd:controls/abilities array append value {id:-3, type:3, devName:"test_ability3", name:"Test Ability 3", uses:[{primary:1,cooldown:3, energyCost:10},{cooldown:20, energyCost:20, maxWait:20},{cooldown:100, energyCost:30, maxWait:60, waitCancel:1}]}
+data modify storage cmd:controls/abilities array set value []
+data modify storage cmd:controls/abilities array append value {id:-1, type:1, devName:"test_ability1", name:"Test Ability 1", uses:[{primary:1,cooldown:100, energyCost:50}]}
+data modify storage cmd:controls/abilities array append value {id:-2, type:2, devName:"test_ability2", name:"Test Ability 2", uses:[{primary:1,cooldown:10, energyCost:50},{cooldown:100, energyCost:0, maxWait:60, waitCancel:1}]}
+data modify storage cmd:controls/abilities array append value {id:-3, type:3, devName:"test_ability3", name:"Test Ability 3", uses:[{primary:1,cooldown:3, energyCost:10},{cooldown:20, energyCost:20, maxWait:20},{cooldown:100, energyCost:30, maxWait:60, waitCancel:1}]}
 
 #(FOR RANDOM TEST ABILITY GENERATION)
 #scoreboard players set dev.generateabilities.id var -5
