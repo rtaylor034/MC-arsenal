@@ -11,7 +11,11 @@ function cmd:process/array/cycleto/run
 #Get melee/ranged multiplier -> equip.sub.pmult
 execute unless data storage cmd:var equip.slots[0].weapon.ranged store result score equip.sub.pmult var run data get storage cmd:process/array/cycleto out[0].percent[0]
 execute if data storage cmd:var equip.slots[0].weapon.ranged store result score equip.sub.pmult var run data get storage cmd:process/array/cycleto out[0].percent[1]
-function cmd:player/abilities/equip/sub/applypercent
+
+#/this is not effecient, it would be better to loop through the path[] array and apply each one to the stat array instead of looping through the stat array and checking every path[] element each time.
+#apply percentage mods (if pathid = currentstat)
+execute store result score equip.sub.pathid var run data get storage cmd:var equip.weapInfo.path[0]
+execute if score equip.sub.pathid var = equip.currstat var run function cmd:player/abilities/equip/sub/applypercent
 
 #CYCLE
 data modify storage cmd:var equip.weapInfo.path append from storage cmd:var equip.weapInfo.path[0]

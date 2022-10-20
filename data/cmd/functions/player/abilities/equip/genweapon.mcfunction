@@ -16,6 +16,8 @@ function cmd:player/abilities/equip/sub/foreachstat
 
 
 #RESET
+scoreboard players reset equip.sub.currstat var
+scoreboard players reset equip.sub.pathid var
 scoreboard players reset equip.sub.pval var
 scoreboard players reset equip.sub.pmult var
 scoreboard players reset equip.sub.j var

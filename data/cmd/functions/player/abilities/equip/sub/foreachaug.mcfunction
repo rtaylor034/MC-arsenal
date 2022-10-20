@@ -3,9 +3,14 @@
 #DECRIMENT
 scoreboard players remove equip.sub.j var 1
 
-#Get percent ratio
+#Get augment
 data modify storage cmd:process/array/cycleto array set from storage cmd:controls/weapons augments
 data modify storage cmd:process/array/cycleto tag.id set from storage cmd:var equip.weapInfo.augments[0]
+function cmd:process/array/cycleto/run
+
+#Get statmods
+data modify storage cmd:process/array/cycleto array set from storage cmd:process/array/cycleto out[0].statMods
+data modify storage cmd:process/array/cycleto tag.id set from storage cmd:var equip.slots[0].weapon.stats[0].id
 function cmd:process/array/cycleto/run
 
 #Get augment stat multiplayer -> equip.sub.pmult
