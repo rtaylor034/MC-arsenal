@@ -10,6 +10,7 @@ data modify storage cmd:var equip.a set from storage cmd:process/array/cycleto o
 execute if score cycleto.out var matches 1 run data modify storage cmd:var equip.slots[0] merge from storage cmd:var equip.a
 
 #WEAPON GENERATION
+#/TODO: Generate uses[]
 execute if data storage cmd:var equip.slots[0].weapon run function cmd:player/abilities/equip/genweapon
 
 
