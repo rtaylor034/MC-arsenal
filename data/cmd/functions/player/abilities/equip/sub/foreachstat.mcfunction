@@ -9,15 +9,15 @@ execute store result score equip.sub.j var if data storage cmd:var equip.weapInf
 execute if score equip.sub.j var matches 1.. run function cmd:player/abilities/equip/sub/foreachaug
 
 #Store current stat id -> (equip.sub.currstat -> var)
-execute store result score equip.sub.currstat var run data get storage cmd:var equip.slots[0].weapon.stats[0].id
+execute store result score equip.sub.currstat var run data get storage cmd:var equip.a.weapon.stats[0].id
 #foreach -> equip.weapInfo.path[]
 execute store result score equip.sub.j var if data storage cmd:var equip.weapInfo.path[]
 execute if score equip.sub.j var matches 1.. run function cmd:player/abilities/equip/sub/foreachpath
 
 
 #CYCLE
-data modify storage cmd:var equip.slots[0].weapon.stats append from storage cmd:var equip.slots[0].weapon.stats[0]
-data remove storage cmd:var equip.slots[0].weapon.stats[0]
+data modify storage cmd:var equip.a.weapon.stats append from storage cmd:var equip.a.weapon.stats[0]
+data remove storage cmd:var equip.a.weapon.stats[0]
 
 
 #LOOP

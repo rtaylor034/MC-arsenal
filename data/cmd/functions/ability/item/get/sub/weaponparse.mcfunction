@@ -17,10 +17,11 @@ data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 Text1
 
 #LORE
 
-#/TODO:
-#USE DATA
+#STAT DATA
 execute unless data storage cmd:var get.a.weapon.ranged run function cmd:ability/item/get/sub/meleestats
 execute if data storage cmd:var get.a.weapon.ranged run function cmd:ability/item/get/sub/rangedstats
+#/TODO: parse path and augment upgrades
+
 
 #TYPE
 #cycle

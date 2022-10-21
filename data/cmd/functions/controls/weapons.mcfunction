@@ -64,7 +64,7 @@ data modify storage cmd:controls/weapons augments append value {id:2, type:2, na
 #"weapon.stats" holds the base stats of the weapon ability. these are dynamic and change when a player equips the weapon ability based on their path upgrades and augments.
 #"weapon.stats[{id:1}]" is the base damage that this ability does in general (handled by the ability function).
 #"weapon.stats[{id:2}]" [MELEE] is the delay (cooldown) in ticks that the player must wait before attacking again (used in uses[] array generation).
-#"weapon.stats[{id:2}]" [RANGED] is the delay (waitTime) in ticks that the player must wait before using the next use in the generated uses[] array (used in uses[] array generation).
+#"weapon.stats[{id:2}]" [RANGED] is the delay (cooldown) in ticks that the player must wait before using the next use in the generated uses[] array (used in uses[] array generation).
 #"weapon.stats[{id:3}]" [MELEE] is the time in ticks that the player channels before actually attacking (handled by the ability function).
 #"weapon.stats[{id:3}]" [RANGED] is the delay (cooldown) in ticks of the last element of the generated uses[] array, known as reload time (used in uses[] array generation).
 #"weapon.stats[{id:4}]" [MELEE] is the general range in 1/10th blocks of the attack (handled by the ability function).
