@@ -1,7 +1,5 @@
 #CALL - cycleability
 
-#ref (equip.slots[0] -> equip.a)
-data modify storage cmd:var equip.a set from storage cmd:var equip.slots[0]
 
 #GET WEAPON
 scoreboard players operation armor.cycleto.player var = @s playerid
@@ -20,9 +18,6 @@ function cmd:player/abilities/equip/sub/foreachstat
 #GENERATE uses[] ARRAY
 execute unless data storage cmd:var equip.a.weapon.ranged run function cmd:player/abilities/equip/meleeuses
 execute if data storage cmd:var equip.a.weapon.ranged run function cmd:player/abilities/equip/rangeduses
-
-#ref setback (equip.a -> equip.slots[0])
-data modify storage cmd:var equip.slots[0] set from storage cmd:var equip.a
 
 #RESET
 scoreboard players reset equip.sub.currstat var
