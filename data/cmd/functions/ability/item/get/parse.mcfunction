@@ -1,4 +1,4 @@
-
+#call - run
 #parses the item
 
 #BASE ITEM
@@ -21,6 +21,12 @@ data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 Text1
 #USE DATA
 scoreboard players set get.use var 0
 execute store result score get.uses var if data storage cmd:var get.a.uses[]
+#get use descriptions
+data modify storage cmd:process/array/cycleto array set from storage cmd:controls/descs abilities
+data modify storage cmd:process/array/cycleto tag.id set from storage cmd:var get.a.id
+function cmd:process/array/cycleto/run
+data modify storage cmd:var get.usedescs set from storage cmd:process/array/cycleto out[0].uses
+
 function cmd:ability/item/get/foreachuse
 
 #TYPE

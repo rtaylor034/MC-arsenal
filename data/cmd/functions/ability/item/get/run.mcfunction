@@ -57,3 +57,4 @@ scoreboard players reset get.uses
 scoreboard players reset get.use
 data remove storage cmd:var get.a
 data remove storage cmd:var get.augs
+data remove storage cmd:var get.usedescs
