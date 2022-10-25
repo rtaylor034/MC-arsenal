@@ -1,6 +1,6 @@
 #CALL - run
 
-data merge block 0 0 0 {Text1:'["",{"text":" ","italic":false,"color":"gray"},{"nbt":"get.sub.descarr[0]","storage":"cmd:var","italic":false,"color":"gray"}]'}
+data merge block 0 0 0 {Text1:'["",{"text":"   ","italic":false,"color":"#CCAACC"},{"nbt":"get.sub.descarr[0]","storage":"cmd:var","italic":false,"color":"#CCAACC"}]'}
 data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 Text1
 
 

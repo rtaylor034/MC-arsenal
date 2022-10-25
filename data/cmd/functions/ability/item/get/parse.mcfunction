@@ -5,9 +5,6 @@
 data modify storage cmd:var get.item set value {Count:1b,id:"minecraft:leather_helmet",tag:{HideFlags:127}}
 
 
-
-
-
 #NAME
 execute unless score get.keybindslot var matches 1.. run data merge block 0 0 0 {Text1:'{"nbt":"get.a.name","storage":"cmd:var","color":"green","bold":false,"italic":false}'}
 

@@ -9,8 +9,10 @@ execute unless score get.uses var matches 2.. run function cmd:ability/item/get/
 execute if score get.uses var matches 2.. run function cmd:ability/item/get/multiuse
 
 #description
-data modify storage cmd:var get.sub.descarr set from storage cmd:var get.usedescs
+data modify storage cmd:var get.sub.descarr set from storage cmd:var get.usedescs[0].short
 function cmd:ability/item/get/sub/descadd/run
+#cycle desc
+data remove storage cmd:var get.usedescs[0]
 
 #CYCLE
 data modify storage cmd:var get.a.uses append from storage cmd:var get.a.uses[0]
