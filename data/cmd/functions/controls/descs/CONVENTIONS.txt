@@ -1,0 +1,7 @@
+
+short descriptions should have a soft-character cap of 32
+
+BETTER WAY PROPOSAL
+- create a c# program that takes a description and seperates it into a word array (ex: ["the","dog","is","epic"]).
+- on reload, parse that array using a universal parse method. this parse method would highlight keywords and generate ratios based off certain character-word combinations.
+- this would probably remove the need for 2 descriptions
