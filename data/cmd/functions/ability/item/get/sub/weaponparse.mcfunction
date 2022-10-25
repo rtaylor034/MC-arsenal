@@ -16,12 +16,17 @@ data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 Text1
 
 
 #LORE
+#/Path upgrades are not explicitly shown in description
 
 #STAT DATA
 execute unless data storage cmd:var get.a.weapon.ranged run function cmd:ability/item/get/sub/meleestats
 execute if data storage cmd:var get.a.weapon.ranged run function cmd:ability/item/get/sub/rangedstats
-#/TODO: parse path and augment upgrades
 
+#/Weapon ability description should come after stat data but before augments (right here)
+
+#AUGMENTS
+#execute if data storage cmd:var get.a.weapon.augments[] run function cmd:ability/item/get/sub/augparse
+function cmd:ability/item/get/sub/augparse
 
 #TYPE
 #cycle

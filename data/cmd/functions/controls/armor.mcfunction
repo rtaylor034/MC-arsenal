@@ -53,7 +53,6 @@ data modify storage cmd:controls/armor names.armorTypes set value [{type:1, name
 #controls the name of armor passives according to "id". Mainly for parsing
 #"name" is the display name of the passive.
 #"innatestat" is the id of the stat that is automatically upgraded when buying the passive.
-#"desc" is a very breif description of what the passive does, each element is a new line. should be at MOST 4 lines, with around 5 words per line.(in depth descriptions should be elsewhere)
 data modify storage cmd:controls/armor passives set value []
-data modify storage cmd:controls/armor passives append value {id:1, name:"Zephyr's Blessing", innatestat:5, desc:["Gain movement speed after using", "a utility ability"]}
-data modify storage cmd:controls/armor passives append value {id:2, name:"Test Passive Two", innatestat:1, desc:["test description two"]}
+data modify storage cmd:controls/armor passives append value {id:1, name:"Zephyr's Blessing", innatestat:5}
+data modify storage cmd:controls/armor passives append value {id:2, name:"Test Passive Two", innatestat:1}

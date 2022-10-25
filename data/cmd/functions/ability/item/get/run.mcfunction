@@ -34,7 +34,7 @@ function cmd:process/array/cycleto/run
 execute if score get.success var matches 1 run scoreboard players operation get.success var = cycleto.out var
 
 #ref var (get.a) (already set if IN ALT was specified)
-execute unless data storage cmd:var get.a. run data modify storage cmd:var get.a set from storage cmd:process/array/cycleto out[0]
+execute unless data storage cmd:var get.a run data modify storage cmd:var get.a set from storage cmd:process/array/cycleto out[0]
 
 #out set
 data remove storage cmd:var get.item
@@ -56,3 +56,4 @@ scoreboard players reset get.keybindslot var
 scoreboard players reset get.uses
 scoreboard players reset get.use
 data remove storage cmd:var get.a
+data remove storage cmd:var get.augs

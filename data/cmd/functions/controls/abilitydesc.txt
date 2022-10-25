@@ -12,3 +12,19 @@ VARIABLE KEY
 <w> = Weapon Damage
 <a> = Attack Speed
 <e> = Max Energy
+
+
+#HOW ITS GUNNA WORK PROBABLY
+- Have a seperate controls file for descriptions of abilities, passives, and augments.
+- All abilities passives and augments will contain a general description, and a detailed description.
+- General descriptions will be short and in array format (1 line per element), giving just enough information to the player to understand what the ability does, without giving any stats.
+~ Example: ["Shoot a fireball that creates", "an explosion on impact", "dealing damage and burning", "players hit."].
+- Detailed descriptions will be an array, but text will be continous until a variable is encountered in the text.
+- Variables will be denoted by a special element in the array (defined by me), followed by the contents, and then an ending character, followed by the next text.
+~Example: ["Shoot a fireball in the direction that you are facing that creates an explosion ", "##", "4", "+", "40", "FO", "$$", " blocks wide that deals ", "##", "50", "+", "100", "PO", "$$", " damage to players that are hit."]
+This would translate to: "Shoot a fireball in the direction that you are facing that creates an explosion (4 + 40% Focus) blocks wide that deals (50 + 100% Power) damage to players hit.", with the ratios all formatted cool.
+~The array used in this example is just a proof concept, and actual implementation is not clear.
+- These detailed descriptions would be parsed ON RELOAD to contain a full valid json text.
+
+- The general description would be what players see on items when hovering over them.
+- The detailed descriptions would be contained in a book given to the player when they select the respective ability while in preparation phase. These books would contain the general description as well as the detailed description.
