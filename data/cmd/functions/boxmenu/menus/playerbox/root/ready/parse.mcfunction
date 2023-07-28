@@ -19,9 +19,9 @@ execute unless score isready var matches 1 run data modify storage cmd:var displ
 
 
 #LORE
-execute if score isready var matches 1 run data modify block 0 0 0 Text1 set value '["",{"text":"(","bold":true,"color":"dark_green","italic":false},{"nbt":"boxmenu.ready.ready","storage":"cmd:var","bold":true,"color":"dark_green","italic":false},{"text":"/","bold":true,"color":"dark_green","italic":false},{"nbt":"boxmenu.ready.total","storage":"cmd:var","bold":true,"color":"dark_green","italic":false},{"text":")","bold":true,"color":"dark_green","italic":false},{"text":" Players Ready","color":"gray","italic":false}]'
-execute unless score isready var matches 1 run data modify block 0 0 0 Text1 set value '["",{"text":"(","bold":true,"color":"gray","italic":false},{"nbt":"boxmenu.ready.ready","storage":"cmd:var","bold":true,"color":"gray","italic":false},{"text":"/","bold":true,"color":"gray","italic":false},{"nbt":"boxmenu.ready.total","storage":"cmd:var","bold":true,"color":"gray","italic":false},{"text":")","bold":true,"color":"gray","italic":false},{"text":" Players Ready","color":"gray","italic":false}]'
-data modify storage cmd:var display.items[0].tag.display.Lore append from block 0 0 0 Text1
+execute if score isready var matches 1 run data modify block 0 0 0 front_text.messages[0] set value '["",{"text":"(","bold":true,"color":"dark_green","italic":false},{"nbt":"boxmenu.ready.ready","storage":"cmd:var","bold":true,"color":"dark_green","italic":false},{"text":"/","bold":true,"color":"dark_green","italic":false},{"nbt":"boxmenu.ready.total","storage":"cmd:var","bold":true,"color":"dark_green","italic":false},{"text":")","bold":true,"color":"dark_green","italic":false},{"text":" Players Ready","color":"gray","italic":false}]'
+execute unless score isready var matches 1 run data modify block 0 0 0 front_text.messages[0] set value '["",{"text":"(","bold":true,"color":"gray","italic":false},{"nbt":"boxmenu.ready.ready","storage":"cmd:var","bold":true,"color":"gray","italic":false},{"text":"/","bold":true,"color":"gray","italic":false},{"nbt":"boxmenu.ready.total","storage":"cmd:var","bold":true,"color":"gray","italic":false},{"text":")","bold":true,"color":"gray","italic":false},{"text":" Players Ready","color":"gray","italic":false}]'
+data modify storage cmd:var display.items[0].tag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 #SUBTEXT

@@ -54,8 +54,8 @@ execute if score isready var matches 1 run scoreboard players set boxmenu.root.a
 
 
 #button
-execute unless score boxmenu.root.armor.state var matches 4..5 run data merge block 0 0 0 {Text1:'[{"text":"Cost: ","color":"dark_aqua","bold":false,"italic":false},{"nbt":"format.text","storage":"cmd:var","interpret":true}]'}
-execute unless score boxmenu.root.armor.state var matches 4..5 run data modify storage cmd:var display.items[0].tag.display.Lore prepend from block 0 0 0 Text1
+execute unless score boxmenu.root.armor.state var matches 4..5 run data modify block 0 0 0 front_text.messages[0] set value '[{"text":"Cost: ","color":"dark_aqua","bold":false,"italic":false},{"nbt":"format.text","storage":"cmd:var","interpret":true}]'
+execute unless score boxmenu.root.armor.state var matches 4..5 run data modify storage cmd:var display.items[0].tag.display.Lore prepend from block 0 0 0 front_text.messages[0]
 
 execute if score boxmenu.root.armor.state var matches 1 run data modify storage cmd:var display.items[0].tag.display.Lore prepend value '{"text":"[Upgrade]","color":"blue","italic":false,"bold":true}'
 execute if score boxmenu.root.armor.state var matches 2 run data modify storage cmd:var display.items[0].tag.display.Lore prepend value '{"text":"Cannot Afford","color":"dark_red","italic":false,"bold":true}'

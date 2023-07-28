@@ -12,3 +12,6 @@ function cmd:controls/consumables
 function cmd:controls/teams
 function cmd:controls/maps
 function cmd:controls/game
+#NOTE - abilities MUST be called before weapons (ability array initialization)
+function cmd:controls/weapons
+function cmd:controls/descs/loadall

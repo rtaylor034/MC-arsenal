@@ -7,7 +7,7 @@
 #USE - parses the ability info for the ability specified in (IN) and returns it as an item in (OUT A). returns the "ability item". (OUT B) returns 1 if an ability with the ID specified in (IN) is found, 0 if not. (OUT c) returns the json text of the suffix of the keybind relating to the slot specified in (IN ALT B) or (IN OPT).
 #ALT USE - gets the ability that is equipped in slot (IN B) on player specified in (IN A), and returns the ability item in (OUT A). (OUT B) will return 1 if the player is found, and has a valid ability in the slot, 0 otherwise.
 
-#NOTE - uses the main ability array from [array -> cmd:controls/abilities]
+#NOTE - uses the main ability array from [array -> cmd:controls/abilities] (For non IN ALT).
 #NOTE - this process returns the standard "ability item" that this ability should have.
 
 #NOTE - this process resets (IN) values
@@ -33,12 +33,13 @@ execute store result storage cmd:process/array/cycleto tag.id int 1 run scoreboa
 function cmd:process/array/cycleto/run
 execute if score get.success var matches 1 run scoreboard players operation get.success var = cycleto.out var
 
-#ref var (get.a)
-data modify storage cmd:var get.a set from storage cmd:process/array/cycleto out[0]
+#ref var (get.a) (already set if IN ALT was specified)
+execute unless data storage cmd:var get.a run data modify storage cmd:var get.a set from storage cmd:process/array/cycleto out[0]
 
 #out set
 data remove storage cmd:var get.item
-execute if score get.success var matches 1 run function cmd:ability/item/get/parse
+execute unless data storage cmd:var get.a.weapon if score get.success var matches 1 run function cmd:ability/item/get/parse
+execute if data storage cmd:var get.a.weapon if score get.success var matches 1 run function cmd:ability/item/get/sub/weaponparse
 execute unless score get.success var matches 1 run data modify storage cmd:var get.item set value {Count:1b, id:"minecraft:stone", tag:{display:{Name:'{"text":"MISSING ABILITY"}'}}}
 
 
@@ -55,3 +56,5 @@ scoreboard players reset get.keybindslot var
 scoreboard players reset get.uses
 scoreboard players reset get.use
 data remove storage cmd:var get.a
+data remove storage cmd:var get.augs
+data remove storage cmd:var get.usedescs

@@ -8,8 +8,8 @@ data modify storage cmd:var display.list.items prepend value {Count:1b,id:"minec
 execute store result storage cmd:var display.list.items[0].tag.CustomModelData int 1 run scoreboard players get get.modeldata var
 
 #NAME
-data merge block 0 0 0 {Text1:'{"nbt":"boxmenu.root.1.1.passives[0].name","storage":"cmd:var","bold":false,"italic":false}'}
-data modify storage cmd:var display.list.items[0].tag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"boxmenu.root.1.1.passives[0].name","storage":"cmd:var","bold":false,"italic":false}'
+data modify storage cmd:var display.list.items[0].tag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 #BUTTON
@@ -19,9 +19,9 @@ data modify storage cmd:process/array/cycleto tag.type set from storage cmd:var 
 function cmd:process/array/cycleto/run
 
 #sign parse
-data merge block 0 0 0 {Text1:'[{"text":"Already on ","color":"dark_aqua","bold":true,"italic":false},{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","color":"dark_aqua","bold":true,"italic":false}]'}
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":"Already on ","color":"dark_aqua","bold":true,"italic":false},{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","color":"dark_aqua","bold":true,"italic":false}]'
 
-data modify storage cmd:var display.list.items[0].tag.display.Lore prepend from block 0 0 0 Text1
+data modify storage cmd:var display.list.items[0].tag.display.Lore prepend from block 0 0 0 front_text.messages[0]
 
 #add tags
 data modify storage cmd:var display.list.items[0].tag.menu.playerbox set value {s1:1,s2:1}

@@ -5,8 +5,8 @@
 scoreboard players remove parse.desc var 1
 
 #SIGN PARSE
-data merge block 0 0 0 {Text1:'[{"text":"  "},{"nbt":"passive.desc[0]","storage":"cmd:var","color":"light_purple","bold":false,"italic":true,"underlined":false}]'}
-data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":"  "},{"nbt":"passive.desc[0]","storage":"cmd:var","color":"dark_aqua","bold":false,"italic":true,"underlined":false}]'
+data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 

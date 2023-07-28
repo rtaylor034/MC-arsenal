@@ -12,8 +12,8 @@ data modify storage cmd:var display.list.items prepend value {Count:1b,id:"minec
 execute store result storage cmd:var display.list.items[0].tag.CustomModelData int 1 run scoreboard players get get.modeldata var
 
 #NAME
-data merge block 0 0 0 {Text1:'{"nbt":"boxmenu.root.1.1.passives[0].name","storage":"cmd:var","bold":false,"italic":false}'}
-data modify storage cmd:var display.list.items[0].tag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"boxmenu.root.1.1.passives[0].name","storage":"cmd:var","bold":false,"italic":false}'
+data modify storage cmd:var display.list.items[0].tag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 #BUTTON

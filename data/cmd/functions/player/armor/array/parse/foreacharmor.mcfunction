@@ -38,25 +38,18 @@ execute store result score parse.lvl var run data get storage cmd:var a.level
 execute if score parse.lvl var matches 1.. run function cmd:player/armor/array/parse/foreachlvl
 
 #sign parse
-execute unless score parse.passive var matches 1.. run data merge block 0 0 0 {Text1:'[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","interpret":false,"color":"yellow","bold":false,"italic":false},{"text":" ","bold":true}, {"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'}
-execute if score parse.passive var matches 1.. run data merge block 0 0 0 {Text1:'[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","color":"gold","bold":false,"italic":false,"underlined":false},{"text":" ","bold":true},{"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'}
-data modify storage cmd:var a.itemtag.display.Name set from block 0 0 0 Text1
+execute unless score parse.passive var matches 1.. run data modify block 0 0 0 front_text.messages[0] set value '[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","interpret":false,"color":"yellow","bold":false,"italic":false},{"text":" ","bold":true}, {"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'
+execute if score parse.passive var matches 1.. run data modify block 0 0 0 front_text.messages[0] set value '[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","color":"gold","bold":false,"italic":false,"underlined":false},{"text":" ","bold":true},{"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'
+data modify storage cmd:var a.itemtag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 
-#== PASSIVE DESCRIPTION ==
-#execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append value '{"text":" "}'
-
-data merge block 0 0 0 {Text1:'[{"text":""}, {"text":" Passive","color":"dark_purple","bold":false,"italic":false,"underlined":false}, {"text":": ","italic":false,"color":"dark_purple"}, {"nbt":"passive.name","storage":"cmd:var","color":"dark_aqua","bold":false,"italic":true,"underlined":false}]'}
-execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 Text1
-
-execute store result score parse.desc var if data storage cmd:var passive.desc[]
-execute if score parse.passive var matches 1.. if score parse.desc var matches 1.. run function cmd:player/armor/array/parse/foreachdesc
 
 #== STATS ==
 #category text
 execute store result score parse.lvl var run data get storage cmd:var a.level
-execute if score parse.lvl var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append value '{"text":" Stats:","color":"white","italic":false}'
+#execute if score parse.lvl var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append value '{"text":" Stats:","color":"white","italic":false}'
+
 
 
 #count stats and apply color
@@ -75,9 +68,14 @@ data modify storage cmd:var statstore set from storage cmd:process/array/cycleto
 execute store result score parse.z var if data storage cmd:var statstore[]
 execute if score parse.z var matches 1.. run function cmd:player/armor/array/parse/foreachstore
 
+#== PASSIVE DESCRIPTION ==
+#execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append value '{"text":" "}'
 
-#spacer
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":" "}, {"text":"+","italic":false,"color":"dark_purple","bold":true}, {"nbt":"passive.name","storage":"cmd:var","color":"light_purple","bold":true,"italic":false,"underlined":false}, {"text":"","italic":false,"color":"aqua"}]'
+execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 front_text.messages[0]
 
+execute store result score parse.desc var if data storage cmd:var passive.desc[]
+execute if score parse.passive var matches 1.. if score parse.desc var matches 1.. run function cmd:player/armor/array/parse/foreachdesc
 
 #PASSIVE LORE
 #category text
@@ -85,8 +83,8 @@ execute if score parse.z var matches 1.. run function cmd:player/armor/array/par
 ##execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append value '{"text":"Passive:","color":"gold","italic":false}'
 
 #sign parse
-##data merge block 0 0 0 {Text1:'{"nbt":"passive.desc","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false,"interpret":true}'}
-##execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 Text1
+##data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"passive.desc","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false,"interpret":true}'
+##execute if score parse.passive var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 #ENCHANTMENT
