@@ -11,8 +11,8 @@ data modify storage cmd:var display.items[0].tag.menu.playerbox set value {}
 
 
 #sign parse cost
-data merge block 0 0 0 {Text1:'[{"text":"Value: ","color":"dark_aqua","bold":false,"italic":false},{"score":{"name":"get.cost","objective":"var"},"color":"gold","bold":false,"italic":true},{"text":"c","color":"gold","bold":false,"italic":true}]'}
-data modify storage cmd:var display.items[0].tag.display.Lore prepend from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":"Value: ","color":"dark_aqua","bold":false,"italic":false},{"score":{"name":"get.cost","objective":"var"},"color":"gold","bold":false,"italic":true},{"text":"c","color":"gold","bold":false,"italic":true}]'
+data modify storage cmd:var display.items[0].tag.display.Lore prepend from block 0 0 0 front_text.messages[0]
 
 #refund text
 data modify storage cmd:var display.items[0].tag.display.Lore prepend value '{"text":"[Refund] ","color":"red","bold":true,"italic":false}'

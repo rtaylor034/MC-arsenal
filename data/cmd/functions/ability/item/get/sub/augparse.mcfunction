@@ -3,8 +3,8 @@
 
 #AUGMENT HEADER
 #data modify storage cmd:var get.item.tag.display.Lore append value '{"text":" "}'
-#data merge block 0 0 0 {Text1:'[{"text":" ","color":"aqua","bold":false,"italic":false},{"text":"Augments:","color":"gold","bold":false,"italic":false,"underlined":false}]'}
-#data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 Text1
+#data modify block 0 0 0 front_text.messages[0] set value '[{"text":" ","color":"aqua","bold":false,"italic":false},{"text":"Augments:","color":"gold","bold":false,"italic":false,"underlined":false}]'
+#data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 #for each aug

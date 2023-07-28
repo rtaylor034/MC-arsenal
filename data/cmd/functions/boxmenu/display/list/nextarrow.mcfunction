@@ -9,8 +9,8 @@ data modify storage cmd:var display.items prepend value {Count:1b,id:"minecraft:
 
 #NAME
 #sign parse
-data merge block 0 0 0 {Text1:'[{"text":"[Page ","color":"gray","bold":true,"italic":false},{"score":{"name":"display.list.page","objective":"var"},"color":"gray","bold":true,"italic":false},{"text":"]","color":"gray","bold":true,"italic":false}]'}
-data modify storage cmd:var display.items[0].tag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":"[Page ","color":"gray","bold":true,"italic":false},{"score":{"name":"display.list.page","objective":"var"},"color":"gray","bold":true,"italic":false},{"text":"]","color":"gray","bold":true,"italic":false}]'
+data modify storage cmd:var display.items[0].tag.display.Name set from block 0 0 0 front_text.messages[0]
 
 #MODEL DATA
 data modify storage cmd:var display.items[0].tag.CustomModelData set from storage cmd:controls/display itemIcon.rightArrow

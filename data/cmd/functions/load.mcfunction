@@ -94,6 +94,7 @@ function cmd:player/armor/array/templates
 
 #SIGN PARSING
 setblock 0 0 0 oak_sign
+data modify block 0 0 0 front_text.messages set value [" "," "," "," "]
 forceload add 0 0
 
 #MESSAGE

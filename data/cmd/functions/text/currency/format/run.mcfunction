@@ -9,10 +9,10 @@
 
 #EX: [A] = 100, [B] = 2 ; [OUT A] = '{"text":"100t","color":"aqua","italic":"true"}'
 
-execute if score format.type var matches 1 run data merge block 0 0 0 {Text1:'[{"score":{"name":"format.number","objective":"var"},"color":"gold","bold":false,"italic":true},{"text":"c","color":"gold","bold":false,"italic":true}]'}
-execute if score format.type var matches 2 run data merge block 0 0 0 {Text1:'[{"score":{"name":"format.number","objective":"var"},"color":"aqua","bold":false,"italic":true},{"text":"t","color":"aqua","bold":false,"italic":true}]'}
+execute if score format.type var matches 1 run data modify block 0 0 0 front_text.messages[0] set value '[{"score":{"name":"format.number","objective":"var"},"color":"gold","bold":false,"italic":true},{"text":"c","color":"gold","bold":false,"italic":true}]'
+execute if score format.type var matches 2 run data modify block 0 0 0 front_text.messages[0] set value '[{"score":{"name":"format.number","objective":"var"},"color":"aqua","bold":false,"italic":true},{"text":"t","color":"aqua","bold":false,"italic":true}]'
 
-data modify storage cmd:var format.text set from block 0 0 0 Text1
+data modify storage cmd:var format.text set from block 0 0 0 front_text.messages[0]
 
 
 

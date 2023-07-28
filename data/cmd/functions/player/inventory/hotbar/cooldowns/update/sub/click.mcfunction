@@ -10,8 +10,8 @@ execute if score update.time var matches ..0 run item replace entity @s hotbar.8
 execute if score update.time var matches 1.. run item replace entity @s hotbar.8 with gray_dye{CustomModelData:1,customtags:{hotbar:8,cooldownslot:4}}
 
 #keybind text set
-data merge block 0 0 0 {Text1:'{"keybind":"key.use"}'}
-data modify storage cmd:var update.keybind set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '{"keybind":"key.use"}'
+data modify storage cmd:var update.keybind set from block 0 0 0 front_text.messages[0]
 
 #parse
 function cmd:player/inventory/hotbar/cooldowns/update/sub/parse

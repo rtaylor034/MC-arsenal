@@ -29,9 +29,9 @@ execute store result score parse.lvl var run data get storage cmd:var w.level
 execute if score parse.lvl var matches 1.. run function cmd:player/armor/array/parse/foreachlvl
 
 #sign parse
-data merge block 0 0 0 {Text1:'[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","interpret":false,"color":"gold","bold":false,"italic":false},{"text":" ","color":"aqua","bold":true,"italic":false},{"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'}
-#execute if score parse.active var matches 1.. run data merge block 0 0 0 {Text1:'{"nbt":"active.name","storage":"cmd:var","color":"light_purple","bold":false,"italic":false,"underlined":false}'}
-data modify storage cmd:var w.itemtag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"nbt":"out[0].name","storage":"cmd:process/array/cycleto","interpret":false,"color":"gold","bold":false,"italic":false},{"text":" ","color":"aqua","bold":true,"italic":false},{"nbt":"lvltext","storage":"cmd:var","interpret":true,"color":"aqua","bold":true,"italic":false}]'
+#execute if score parse.active var matches 1.. run data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"active.name","storage":"cmd:var","color":"light_purple","bold":false,"italic":false,"underlined":false}'
+data modify storage cmd:var w.itemtag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 #STATS

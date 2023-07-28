@@ -11,5 +11,5 @@ function cmd:process/array/cycleto/run
 data modify storage cmd:var boxmenu.root.slotid set from storage cmd:process/array/cycleto out[0]
 
 #sign parse
-data merge block 0 0 0 {Text1:'[{"nbt":"boxmenu.root.slotid.name","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false},{"text":" Ability ","color":"dark_gray","bold":false,"italic":false},{"nbt":"get.keysuffix","storage":"cmd:var","interpret":true}]'}
-data modify storage cmd:var display.items[0].tag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"nbt":"boxmenu.root.slotid.name","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false},{"text":" Ability ","color":"dark_gray","bold":false,"italic":false},{"nbt":"get.keysuffix","storage":"cmd:var","interpret":true}]'
+data modify storage cmd:var display.items[0].tag.display.Name set from block 0 0 0 front_text.messages[0]

@@ -6,16 +6,16 @@ data modify storage cmd:var get.item set value {Count:1b,id:"minecraft:carrot_on
 
 
 #NAME
-data merge block 0 0 0 {Text1:'{"nbt":"get.a.name","storage":"cmd:var","color":"white","bold":false,"italic":false}'}
-data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"get.a.name","storage":"cmd:var","color":"white","bold":false,"italic":false}'
+data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 #LORE
 
 
 #DEV ID
-data merge block 0 0 0 {Text1:'[{"score":{"name":"get.id","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" : ","color":"dark_gray","bold":false,"italic":false}, {"nbt":"get.a.devName","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'}
-data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"score":{"name":"get.id","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" : ","color":"dark_gray","bold":false,"italic":false}, {"nbt":"get.a.devName","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'
+data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 #MODELDATA

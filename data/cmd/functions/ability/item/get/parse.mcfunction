@@ -6,11 +6,11 @@ data modify storage cmd:var get.item set value {Count:1b,id:"minecraft:leather_h
 
 
 #NAME
-execute unless score get.keybindslot var matches 1.. run data merge block 0 0 0 {Text1:'{"nbt":"get.a.name","storage":"cmd:var","color":"green","bold":false,"italic":false}'}
+execute unless score get.keybindslot var matches 1.. run data modify block 0 0 0 front_text.messages[0] set value '{"nbt":"get.a.name","storage":"cmd:var","color":"green","bold":false,"italic":false}'
 
-execute if score get.keybindslot var matches 1.. run data merge block 0 0 0 {Text1:'[{"nbt":"get.a.name","storage":"cmd:var","color":"green","bold":false,"italic":false},{"text":" "},{"nbt":"get.keysuffix","storage":"cmd:var","interpret":true}]'}
+execute if score get.keybindslot var matches 1.. run data modify block 0 0 0 front_text.messages[0] set value '[{"nbt":"get.a.name","storage":"cmd:var","color":"green","bold":false,"italic":false},{"text":" "},{"nbt":"get.keysuffix","storage":"cmd:var","interpret":true}]'
 
-data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 Text1
+data modify storage cmd:var get.item.tag.display.Name set from block 0 0 0 front_text.messages[0]
 
 
 #LORE
@@ -32,8 +32,8 @@ data modify storage cmd:process/array/cycleto array set from storage cmd:control
 data modify storage cmd:process/array/cycleto tag.type set from storage cmd:var get.a.type
 function cmd:process/array/cycleto/run
 #parse
-data merge block 0 0 0 {Text1:'[{"text":" Type: ","color":"gray","bold":false,"italic":false},{"nbt":"out[0].displayJson","storage":"cmd:process/array/cycleto","interpret":true}]'}
-data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"text":" Type: ","color":"gray","bold":false,"italic":false},{"nbt":"out[0].displayJson","storage":"cmd:process/array/cycleto","interpret":true}]'
+data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 #BORDER COLOR
 data modify storage cmd:process/math/rgbtodecimal in set from storage cmd:process/array/cycleto out[0].color
@@ -43,8 +43,8 @@ execute store result storage cmd:var get.item.tag.display.color int 1 run scoreb
 
 
 #DEV ID
-data merge block 0 0 0 {Text1:'[{"score":{"name":"get.id","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" : ","color":"dark_gray","bold":false,"italic":false}, {"nbt":"get.a.devName","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'}
-data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 Text1
+data modify block 0 0 0 front_text.messages[0] set value '[{"score":{"name":"get.id","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" : ","color":"dark_gray","bold":false,"italic":false}, {"nbt":"get.a.devName","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'
+data modify storage cmd:var get.item.tag.display.Lore append from block 0 0 0 front_text.messages[0]
 
 
 #MODELDATA

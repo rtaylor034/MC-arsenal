@@ -17,10 +17,10 @@ scoreboard players operation ticks2sec.ticks var %= 20 const
 scoreboard players operation ticks2sec.ticks var /= 2 const
 
 #parse
-data merge block 0 0 0 {Text1:'[{"score":{"name":"ticks2sec.whole","objective":"var"}},{"text":"."},{"score":{"name":"ticks2sec.ticks","objective":"var"}}]'}
+data modify block 0 0 0 front_text.messages[0] set value '[{"score":{"name":"ticks2sec.whole","objective":"var"}},{"text":"."},{"score":{"name":"ticks2sec.ticks","objective":"var"}}]'
 
 #out
-data modify storage cmd:process/text/ticks2sec out set from block 0 0 0 Text1
+data modify storage cmd:process/text/ticks2sec out set from block 0 0 0 front_text.messages[0]
 
 
 
