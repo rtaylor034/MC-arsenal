@@ -2,6 +2,7 @@
 #called from load
 #declares all templates and nbt storage for armor
 #Mainly to create references to controls, so that if a control changes its name or anything else, it just has to be changed here, instead of scouring code to find whenever they are used.
+## DEVNOTE - this was controls before controls existed, only still exists becuase too lazy to change all paths.
 
 #ARMOR TYPES
 #1 - Boots
