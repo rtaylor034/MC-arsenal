@@ -18,8 +18,8 @@ execute store result score parse.stat.mult var run data get storage cmd:process/
 scoreboard players operation parse.stat.count var *= parse.stat.mult var
 
 #PARSE
-data merge block 0 0 0 {Text2:'[{"text":" +","color":"gray","bold":false,"italic":false},{"score":{"name":"parse.stat.count","objective":"var"},"color":"gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"gray","bold":false,"italic":false}]'}
-execute if score parse.stat.count var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 Text2
+data modify block 0 0 0 front_text.messages[1] set value '[{"text":" +","color":"gray","bold":false,"italic":false},{"score":{"name":"parse.stat.count","objective":"var"},"color":"gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"gray","bold":false,"italic":false}]'
+execute if score parse.stat.count var matches 1.. run data modify storage cmd:var a.itemtag.display.Lore append from block 0 0 0 front_text.messages[1]
 #CYCLE
 data modify storage cmd:var statstore append from storage cmd:var statstore[0]
 data remove storage cmd:var statstore[0]

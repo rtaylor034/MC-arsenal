@@ -23,9 +23,9 @@ execute store result score parse.stat.base var run data get storage cmd:process/
 
 
 #PARSE
-execute if score parse.stat.count var matches 1.. run data merge block 0 0 0 {Text2:'[{"text":" "}, {"score":{"name":"parse.stat.base","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" + ","color":"gray","bold":false,"italic":false},{"score":{"name":"parse.stat.count","objective":"var"},"color":"gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"gray","bold":false,"italic":false}]'}
-execute unless score parse.stat.count var matches 1.. run data merge block 0 0 0 {Text2:'[{"text":" "},{"score":{"name":"parse.stat.base","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'}
-data modify storage cmd:var w.itemtag.display.Lore append from block 0 0 0 Text2
+execute if score parse.stat.count var matches 1.. run data modify block 0 0 0 front_text.messages[1] set value '[{"text":" "}, {"score":{"name":"parse.stat.base","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" + ","color":"gray","bold":false,"italic":false},{"score":{"name":"parse.stat.count","objective":"var"},"color":"gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"gray","bold":false,"italic":false}]'
+execute unless score parse.stat.count var matches 1.. run data modify block 0 0 0 front_text.messages[1] set value '[{"text":" "},{"score":{"name":"parse.stat.base","objective":"var"},"color":"dark_gray","bold":false,"italic":false},{"text":" "},{"nbt":"statstore[0].name","storage":"cmd:var","color":"dark_gray","bold":false,"italic":false}]'
+data modify storage cmd:var w.itemtag.display.Lore append from block 0 0 0 front_text.messages[1]
 #CYCLE
 data modify storage cmd:var statstore append from storage cmd:var statstore[0]
 data remove storage cmd:var statstore[0]
