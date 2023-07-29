@@ -15,7 +15,7 @@ execute store result storage cmd:storage/armor array[0].weapon.itemtag.customtag
 #EQUIP ABILITY
 #cycle weaponIdentity array
 data modify storage cmd:process/array/cycleto array set from storage cmd:controls/weapons baseIdentities
-execute store result storage cmd:process/array/cycleto tag.type int 1 run scoreboard players get weapon.choose.type
+execute store result storage cmd:process/array/cycleto tag.type int 1 run scoreboard players get weapon.choose.type var
 function cmd:process/array/cycleto/run
 data modify storage cmd:var choose.w set from storage cmd:process/array/cycleto out[0]
 #find player
