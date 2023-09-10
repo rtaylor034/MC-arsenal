@@ -1,2 +1,2 @@
 # MC-arsenal
-This project is discontinued
+This project is archived
